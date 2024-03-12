@@ -1,3 +1,5 @@
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,14 +20,16 @@ public class OrderListAPITests extends BaseTest {
     }
 
     @Test
+    @DisplayName("Проверка получения списка заказов с авторизацией")
+    @Description("Проверяем что юзер может получить список своих заказов с авторизацикй")
     public void testGetUserOrdersWithAuth() {
-        // Тест на получение списка заказов с авторизацией
         orderListClient.getUserOrdersWithAuth(accessToken);
     }
 
     @Test
+    @DisplayName("Получение списка заказов без авторизации")
+    @Description("Проверяем что юзер не может получить список своих заказов без авторизации")
     public void testGetUserOrdersWithoutAuth() {
-        // Тест на попытку получения списка заказов без авторизации
         orderListClient.getUserOrdersWithoutAuth();
     }
 }
